@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Register</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+     <link rel='stylesheet' type='text/css' href="{% static 'register.css' %}">
+    <!--<link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>-->
+    <link rel='stylesheet' type='text/css' href="{% static 'indexstyle.css' %}">
+    <link rel='stylesheet' type='text/css' href="{% static 'detailsstyle.css' %}">
+   
+</head>
+<body>
+
+<div class="bgimage1">
+        <div class="menu">
+            <div class="leftmenu">
+                <h4 color="white"> Event Mangagement </h4>
+            </div>
+
+            <div class="rightmenu">
+                <ul>
+    
+                    <li>Hello, {{user.first_name}}</li>
+                    <li><button type="button" onclick="location.href ='index'">logout</button></li>
+                    <li><button type="button" onclick="location.href ='details'">back</button></li>
+                </ul>
+           
+                
+            </div>
+            </div>
+           
+
+
+
+
+
+ <form action="register" method="POST" class="top" >
+            {% csrf_token %}
+             <div class= register>
+            <h2> Register here</h2>
+            </div>
+            <div class="registercontainer">
+        <label for="name" class="lable"> Name</label>
+            <input type="text"  class="input-boxr" name="name" placeholder="Name" required>
+        <label for="USN" class="lable">USN</label>
+            <input type="text"  class="input-boxr" name="USN" placeholder="USN" required>
+
+        <label for="branch" class="lable">Branch</label>
+            <input type="text"  class="input-boxr" name="branch" placeholder="Branch" required>
+        <label for="seml" class="lable">Semester</label>
+            <input type="text"  class="input-boxr" name="sem" placeholder="Semester" required>
+        <label for="college" class="lable">College</label>
+            <input type="text"  class="input-boxr" name="college" placeholder="college" required>
+        <label for="email" class="lable">Email ID</label>
+            <input type="text" class="input-boxr"  name="email" placeholder="E-mail ID" required>
+        <label for="contact" class="lable">Contact</label>
+            <input type="text" class="input-boxr"  name="contact" placeholder="Contact number"required>
+            <p class="lable">SELECT PAYMENT MODE</p><br>
+        <label for="payment_mode" class="input-boxr">debit card</label>
+          <input type="radio" name="payment_mode" value="debit card" placeholder="payment_mode"required>
+        <label for="payment_mode" class="input-boxr">credit card</label>
+          <input type="radio" name="payment_mode" value="credit card" placeholder="payment_mode"required>
+            <br>
+            <br>
+        <label for="account_no" class="lable">Account number</label>
+            <input type="text" class="input-boxr"  name="account_no" placeholder="Account no."required>
+         <label for="cvv" class="lable">CVV No.</label>
+            <input type="text" class="input-boxr"  name="cvv" placeholder="CVV no."required>
+         <label for="exp_date" class="lable">Expiry Date</label>
+            <input type="text" class="input-boxr"  name="exp_date" placeholder="expiry date"required>
+         <label for="E_id_id" class="lable">Event ID</label>
+            <input type="text" class="input-boxr"  name="E_id_id" placeholder="Event ID"required>
+        <button class="lable" type="submit" class="submit" color="orange" >Submit</button>
+       
+   
+    <div  >
+        <button type="button" onclick="location.href ='details'" class="cancel">Cancel</button>
+        
+    </div>
+    </div>
+    
+        
+
+    
+</form>
+</div>  
+</div>
+    
+    
+    <!--<div>
+        {% for message in messages %}
+        <h3> {{message}}  </h3>
+        {% endfor %}
+    </div>-->
+
+</body>
+</html>

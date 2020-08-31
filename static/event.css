@@ -1,0 +1,40 @@
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+ 
+  float: left;
+	background: #fff;
+	font-family: arial;
+	position: relative;
+	width:250px;
+	height: 330px;
+	overflow: hidden;
+	box-shadow: 0 0 20px #ccc;
+	margin-left: 5%;
+	margin-top:8%;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+
+  width: 100%;
+  height: 45%;
+  background-image: url(media\pics\{{E_image}});
+
+}
+
+
+div.desc {
+  padding: 15px;
+  text-align: left;
+}
+.bg{
+    background-image: url(HO.jpg);
+	background-size: 100% 100%;
+	width: 100%;
+	height: 100%;
+
+}

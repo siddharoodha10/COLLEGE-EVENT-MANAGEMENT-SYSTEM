@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Sign Up</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+   <link rel='stylesheet' type='text/css' href="{% static 'signup.css' %}">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--<script src='main.js'></script>-->
+    <style>
+     
+        table{ margin-left:auto; margin-right:auto; }
+    </style>
+
+</head>
+<body>
+<div class="sign-up-form">
+
+<h1><i class="fa fa-user"></i><br>
+<h1>Sign Up here</h1>
+    
+        <form action="signup" method="post">
+            {% csrf_token %}
+
+            <label for="First Name"><b>First Name</label>
+            <input type="text"  class="input-box" name="first_name" placeholder=""><br></td></tr>
+            <tr><td>Last Name</td><td><input type="text"  class="input-box" name="last_name" placeholder=""><br></td></tr>
+            <tr><td>Email ID</td><td><input type="email" class="input-box"  name="email" placeholder=""><br></td></tr>
+            <tr><td>Username</td><td><input type="text"  class="input-box" name="username" placeholder=""><br></td></tr>
+            <tr><td>Password</td><td><input type="password" class="input-box"  name="password1" placeholder=""><br></td></tr>
+            <tr><td>Confirm Password</td><td><input type="password" class="input-box"  name="password2" placeholder=""><br></td></tr>
+            <tr><td colspan="2"><input type="Submit" class="submit"></td></tr>
+
+             
+            
+
+        </form>
+    
+
+    <div>
+        {% for message in messages %}
+        <h3> {{message}}  </h3>
+        {% endfor %}
+    </div>
+
+</body>
+</html>

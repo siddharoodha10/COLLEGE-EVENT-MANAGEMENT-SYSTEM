@@ -1,0 +1,139 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <title>home</title>
+    <link rel='stylesheet' type='text/css' href="{% static 'indexstyle.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<body>
+   <div class="bgimage">
+        <div class="menu ">
+
+            <div class="leftmenu">
+                <h4> EVENT MANAGEMENT </h4>
+            </div>
+
+            <div class="rightmenu">
+                <ul>
+                    <li> <button type="button" onclick="location.href ='\'" >home</button></li>
+                    {% if user.is_authenticated %}
+					<li>Hello, {{user.first_name}}</li>
+					<li> <button type="button" onclick="location.href ='logout'" >logout</button></li>
+                    
+					{% else %}	
+					<li><button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">sign-up</button></li>
+					<li><button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button></li>
+                    <li> <button type="button" onclick="location.href ='http://127.0.0.1:8000/admin/.'" >Admin</button></li>
+                    {% endif %}
+                    <li>Call us: 00-0000000000</li>
+                </ul>
+            </div>
+        </div>
+        <div class="by">
+        <p>Siddharoodha Gubbewad-17GAEM9088</P>
+        </div>
+        
+
+            <!--login-->
+<div id="id01" class="modal">
+  
+
+ <form class="modal-content animate"   action="login" method="POST">
+    <div class="imgcontainer">
+      <img class="img" width=90px  src="{% static 'avatar.png' %}" alt="Avatar">
+    </div>
+    
+     {% csrf_token %}
+  
+
+    <div class="container">
+        <label for="Username"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username" required>
+
+        <label for="Password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+
+        <button type="submit" class="login" >Login</button>
+        <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+        <button type="button" onclick="location.href ='index'" class="cancelbtn">Cancel</button>
+        <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+
+</form>
+        
+</div>
+<div >
+            {% for message in messages %}
+            <h3 class=msg> {{message}}  </h3>
+            {% endfor %}
+    
+        </div>
+
+
+
+<!--signup-->
+<div id="id02" class="modal2">
+  
+
+ <form class="modal2-content2 animate"   action="signup" method="POST">
+    <div class="imgcontainer">
+      <img class="img" width=90px  src="{% static 'avatar.png' %}" alt="Avatar">
+    </div>
+    
+     {% csrf_token %}
+  
+
+    <div class="container2">
+        <label for="First Name"><b>First Name</label>
+            <input type="text"  class="input-box" name="first_name" placeholder="first name" required>
+
+        <label for="Last Name"><b>Last Name</b></label>
+        <input type="text"  class="input-box" name="last_name" placeholder="last anme" required>
+        <label for="E mail"><b>E-mail ID</label>
+            <input type="email"  class="input-box" name="email" placeholder="Email" required>
+
+       
+
+        <label for="Username"><b>Username</b></label>
+        <input type="text"  class="input-box" name="username" placeholder="user name" required>
+
+        <label for="Password"><b>Password</label>
+        <input type="password" class="input-box"  name="password1" placeholder="password" required>
+
+        <label for="Confirm Password"><b>Confirm Password</label>
+        <input type="password" class="input-box"  name="password2" placeholder="confirm password"required>
+
+        <button type="submit" class="submit" >Submit</button>
+       
+    </div>
+    <div class="container2" style="background-color:#f1f1f1">
+        <button type="button" onclick="location.href ='index'" class="cancelbtn">Cancel</button>
+        
+    </div>
+        
+
+    
+</form>
+</div>      
+ 
+
+
+
+
+
+</body>
+</html>
